@@ -11,14 +11,16 @@ const projects = [
     description: 'A project tracker built for speed, not sprawl',
     image: launchdeskImage,
     alt: 'LaunchDesk project dashboard',
-    link: '/portfolio/launchdesk',
+    link: 'https://woxbuilt.online',
+    external: true,
   },
   {
     title: 'StockPilot',
     description: 'Inventory Visibility for a Growing Retail Operation',
     image: stockpilotinventoryImage,
     alt: 'StockPilot inventory visibility dashboard',
-    link: '/portfolio/stockpilot',
+    link: 'https://www.woxbuilt.org/dashboard',
+    external: true,
   },
   {
     title: 'QualifyBot',
@@ -70,13 +72,23 @@ export default function Portfolio() {
                     </div>
 
                     <div className="mt-6 pt-4 border-t border-[var(--line)]">
-                      <Link
-                        to={project.link}
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[var(--copper)] transition-colors hover:text-[var(--copper-bright)]"
-                      >
-                        <span>View live product</span>
-                        <span>→</span>
-                      </Link>
+                      {project.external ? (
+                        <a
+                          href={project.link}
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[var(--copper)] transition-colors hover:text-[var(--copper-bright)]"
+                        >
+                          <span>View live product</span>
+                          <span>→</span>
+                        </a>
+                      ) : (
+                        <Link
+                          to={project.link}
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[var(--copper)] transition-colors hover:text-[var(--copper-bright)]"
+                        >
+                          <span>View live product</span>
+                          <span>→</span>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>
